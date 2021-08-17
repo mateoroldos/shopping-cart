@@ -5,8 +5,12 @@ function Cart(props) {
   const [visibility, setVisibility] = useState(props.visibility);
   const [cartContent, setCartContent] = useState(props.cartContent);
 
+  const removeElement = () => {
+    console.log('removeele');
+  };
+
   const cartContentElements = Object.keys(cartContent).map((key) => (
-    <CartElement key={key} player={cartContent[key]} />
+    <CartElement key={key} player={cartContent[key]} removeCartElement={removeElement} />
   ));
 
   useEffect(() => {

@@ -68,12 +68,12 @@ li {
 }
 
 .cart-element {
+  margin: 30px;
+  padding: 30px;
   background-color: wheat;
 }
 
 .cart-element-image {
-  margin: 30px;
-  padding: 30px;
   width: 50%;
   height: 200px;
 }
