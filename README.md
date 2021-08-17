@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# 🛒 Shopping Cart React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Excercise for The Odin Project Javascript Full Stack curriculum.
+
+Learning outcomes:
+
+- React Router
 
 ## Available Scripts
 
