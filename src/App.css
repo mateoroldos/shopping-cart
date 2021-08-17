@@ -30,6 +30,24 @@ li {
   margin-right: 18px;
 }
 
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product {
+  background-color: wheat;
+  width: 250px;
+  padding: 30px;
+  margin: 50px;
+}
+
+.product-image {
+  width: 100%;
+  height: 350px;
+}
+
 .hidden {
   display: none;
 }

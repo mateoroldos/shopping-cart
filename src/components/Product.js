@@ -3,13 +3,14 @@ function Product(props) {
 
   return (
     <div className="product">
-      <img className="card-image" src={imageFile} alt={props.player} />
+      <img className="product-image" src={imageFile} alt={props.player} />
       <h3>
         {props.player.name}
         {props.player.surname}
       </h3>
       <div>{props.player.position}</div>
       <div>{props.player.price}</div>
+      <button>Add To Cart</button>
     </div>
   );
 }

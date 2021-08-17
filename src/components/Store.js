@@ -8,7 +8,7 @@ function Store() {
   return (
     <div>
       <h1>This is the store</h1>
-      <div>{productsElements}</div>
+      <div className="products">{productsElements}</div>
     </div>
   );
 }
