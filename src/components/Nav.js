@@ -4,6 +4,10 @@ import CartButton from './CartButton';
 function Nav(props) {
   return (
     <nav>
+      <div className="nav-left-div">
+        <h1>Football Legends Store</h1>
+      </div>
+
       <ul>
         <Link to="/">
           <li>Home</li>
@@ -12,7 +16,10 @@ function Nav(props) {
           <li>Store</li>
         </Link>
       </ul>
-      <CartButton displayCart={props.displayCart}></CartButton>
+
+      <div className="nav-right-div">
+        <CartButton displayCart={props.displayCart}></CartButton>
+      </div>
     </nav>
   );
 }
