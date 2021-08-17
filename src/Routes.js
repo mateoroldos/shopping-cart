@@ -5,9 +5,12 @@ import Home from './components/Home';
 import Store from './components/Store';
 import Nav from './components/Nav';
 import Cart from './components/Cart';
+import productsData from './data/productsData';
 
 function Routes() {
   const [cartVisibility, setCartVisibility] = useState('hidden');
+  const [cartContent, setCartContent] = useState([]);
+
   const displayCart = () => {
     if (cartVisibility === 'hidden') {
       setCartVisibility('display');
@@ -16,14 +19,18 @@ function Routes() {
     }
   };
 
+  const addToCartArray = (producId) => {
+    setCartContent((prevArray) => [...prevArray, productsData.productsArray[producId]]);
+  };
+
   return (
     <BrowserRouter>
       <Nav displayCart={displayCart}></Nav>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/store" component={Store} />
+        <Route path="/store" render={() => <Store addToCartStore={addToCartArray} />} />
       </Switch>
-      <Cart visibility={cartVisibility}></Cart>
+      <Cart visibility={cartVisibility} cartContent={cartContent}></Cart>
     </BrowserRouter>
   );
 }

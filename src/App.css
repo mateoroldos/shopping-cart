@@ -55,3 +55,25 @@ li {
 .display {
   display: flex;
 }
+
+.cart {
+  background-color: rgb(177, 177, 141);
+  height: 100%;
+  width: 40%;
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow: auto;
+}
+
+.cart-element {
+  background-color: wheat;
+}
+
+.cart-element-image {
+  margin: 30px;
+  padding: 30px;
+  width: 50%;
+  height: 200px;
+}
