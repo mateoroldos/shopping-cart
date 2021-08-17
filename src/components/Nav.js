@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import CartButton from './CartButton';
 
-function Nav() {
+function Nav(props) {
   return (
     <nav>
       <ul>
@@ -11,6 +12,7 @@ function Nav() {
           <li>Store</li>
         </Link>
       </ul>
+      <CartButton displayCart={props.displayCart}></CartButton>
     </nav>
   );
 }
