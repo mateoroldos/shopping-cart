@@ -9,7 +9,7 @@ import productsData from './data/productsData';
 
 function Routes() {
   const [cartVisibility, setCartVisibility] = useState('hidden');
-  const [cartContent, setCartContent] = useState([]);
+  const [cartContent, setCartContent] = useState();
 
   const displayCart = () => {
     if (cartVisibility === 'hidden') {
@@ -20,7 +20,11 @@ function Routes() {
   };
 
   const addToCartArray = (producId) => {
-    setCartContent((prevArray) => [...prevArray, productsData.productsArray[producId]]);
+    if (cartContent === productsData.productsArray[producId]) {
+      alert('son iguales');
+    } else {
+      setCartContent(productsData.productsArray[producId]);
+    }
   };
 
   return (

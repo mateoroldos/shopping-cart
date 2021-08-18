@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CartElement(props) {
   const [quantity, setQuantity] = useState(1);
@@ -9,10 +9,17 @@ function CartElement(props) {
 
   const removeItem = () => {
     setQuantity(quantity - 1);
-    if (quantity < 2) {
-      props.removeCartElement();
-    }
   };
+
+  const removeFromCart = () => {
+    props.removeCartElement(props.productId);
+  };
+
+  useEffect(() => {
+    if (quantity === 0) {
+      removeFromCart();
+    }
+  }, [quantity]);
 
   const imageFile = 'player-images/' + props.player.imageName + '.jpeg';
 

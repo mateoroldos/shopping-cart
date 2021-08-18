@@ -3,28 +3,40 @@ import CartElement from './CartElement';
 
 function Cart(props) {
   const [visibility, setVisibility] = useState(props.visibility);
-  const [cartContent, setCartContent] = useState(props.cartContent);
+  const [cartContent, setCartContent] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const removeElement = () => {
-    console.log('removeele');
+  const removeElement = (itemKey) => {
+    let newArray = [...cartContent];
+    newArray.splice(itemKey, 1);
+    setCartContent(newArray);
+    console.log(cartContent);
   };
-
-  const cartContentElements = Object.keys(cartContent).map((key) => (
-    <CartElement key={key} player={cartContent[key]} removeCartElement={removeElement} />
-  ));
 
   useEffect(() => {
     setVisibility(props.visibility);
   }, [props.visibility]);
 
   useEffect(() => {
-    setCartContent(props.cartContent);
+    if (count > 0) {
+      setCartContent((prevArray) => [...prevArray, props.cartContent]);
+    }
+    setCount(count + 1);
   }, [props.cartContent]);
 
   return (
     <div className={visibility + ' cart'}>
       <h1>This is the cart</h1>
-      <div>{cartContentElements}</div>
+      <div>
+        {Object.keys(cartContent).map((i) => (
+          <CartElement
+            key={cartContent[i].id}
+            player={cartContent[i]}
+            removeCartElement={removeElement}
+            productId={i}
+          />
+        ))}
+      </div>
     </div>
   );
 }
