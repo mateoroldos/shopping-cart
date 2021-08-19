@@ -10,6 +10,7 @@ import productsData from './data/productsData';
 function Routes() {
   const [cartVisibility, setCartVisibility] = useState('hidden');
   const [cartContent, setCartContent] = useState();
+  const [counter, setCounter] = useState(0);
 
   const displayCart = () => {
     if (cartVisibility === 'hidden') {
@@ -20,11 +21,8 @@ function Routes() {
   };
 
   const addToCartArray = (producId) => {
-    if (cartContent === productsData.productsArray[producId]) {
-      alert('son iguales');
-    } else {
-      setCartContent(productsData.productsArray[producId]);
-    }
+    setCartContent(productsData.productsArray[producId]);
+    setCounter(counter + 1);
   };
 
   return (
@@ -34,7 +32,7 @@ function Routes() {
         <Route exact path="/" component={Home} />
         <Route path="/store" render={() => <Store addToCartStore={addToCartArray} />} />
       </Switch>
-      <Cart visibility={cartVisibility} cartContent={cartContent}></Cart>
+      <Cart visibility={cartVisibility} cartContent={cartContent} counter={counter}></Cart>
     </BrowserRouter>
   );
 }

@@ -19,10 +19,13 @@ function Cart(props) {
 
   useEffect(() => {
     if (count > 0) {
-      setCartContent((prevArray) => [...prevArray, props.cartContent]);
+      if (cartContent.includes(props.cartContent)) {
+      } else {
+        setCartContent((prevArray) => [...prevArray, props.cartContent]);
+      }
     }
     setCount(count + 1);
-  }, [props.cartContent]);
+  }, [props.counter]);
 
   return (
     <div className={visibility + ' cart'}>
